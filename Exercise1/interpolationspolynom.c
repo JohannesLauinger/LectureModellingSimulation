@@ -81,11 +81,20 @@ int main(int argc,char* argv[]) {
 
   // Laufvariablen
   int i, j;
-  double D[N][N]; // für eine Matrix der Dimnsion NxN
+  double D[N][N]; // für eine Matrix der Dimension NxN
 
 
   
 // Berechnen Sie die dividierten Differenzen:
+
+printf("N: %d \n", N);
+printf("y[0]: %.3lf \n", y[0]);
+for (i = 0; i < N; i++) {
+  D[i][0] = y[i];
+  for(j = 1; j <= i; j++) {
+    D[i][j] = ((D[i][j-1] - D[i-1][j-1])/(x[i]-x[i-j]));
+  }
+}
 
   // Geben Sie hier die dividierten Differenzen in Form einer Matrix aus:
   printf("\n  Ausgabe der dividierten Differenzen D: \n");
